@@ -1,7 +1,7 @@
 package websocket;
 
 import com.google.gson.Gson;
-import response.MessageResponse;
+import message.Message;
 
 public class DefaultMessageHandler implements MessageHandler {
 
@@ -12,8 +12,8 @@ public class DefaultMessageHandler implements MessageHandler {
     }
 
     @Override
-    public void handle(String message) {
-        MessageResponse messageResponse = gson.fromJson(message, MessageResponse.class);
-        System.out.println(messageResponse.getMessage());
+    public void handle(String context) {
+        Message message = gson.fromJson(context, Message.class);
+        System.out.println(message.getContext());
     }
 }
