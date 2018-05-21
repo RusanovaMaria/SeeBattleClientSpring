@@ -1,22 +1,22 @@
-package response;
+package message;
 
-public class MessageResponse {
+public class Message {
 
-    private String message;
+    private String context;
 
-    public MessageResponse() {
+    public Message() {
 
     }
 
-    public MessageResponse(String message) {
-        this.message = message;
+    public Message(String message) {
+        this.context = message;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContext() {
+        return context;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContext(String context) {
+        this.context = context;
     }
 }
