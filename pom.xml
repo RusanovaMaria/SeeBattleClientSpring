@@ -8,20 +8,15 @@
     <artifactId>SeeBattleClientSpring</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <tomcat.version>9.0.8</tomcat.version>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.0.0.RELEASE</version>
     </parent>
-
-    <name>SeeBattleClientSpring public class SpringWebsocketSandboxApplication {
-    </name>
-    <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <tomcat.version>8.0.3</tomcat.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -31,6 +26,11 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

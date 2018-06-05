@@ -1,7 +1,8 @@
-package websocket;
+package com.seebattleclient.websocket;
 
 import com.google.gson.Gson;
-import message.Message;
+import com.seebattleclient.message.Message;
+import org.springframework.web.socket.TextMessage;
 
 public class DefaultMessageHandler implements MessageHandler {
 

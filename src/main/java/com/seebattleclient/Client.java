@@ -1,7 +1,9 @@
+package com.seebattleclient;
+
 import com.google.gson.Gson;
-import message.Message;
-import websocket.DefaultMessageHandler;
-import websocket.WebSocketConnector;
+import com.seebattleclient.message.Message;
+import com.seebattleclient.websocket.DefaultMessageHandler;
+import com.seebattleclient.websocket.WebSocketConnector;
 
 import java.net.URI;
 import java.util.Scanner;
