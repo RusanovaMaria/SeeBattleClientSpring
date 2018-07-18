@@ -1,7 +1,7 @@
 package com.seebattleclient;
 
-import com.google.gson.Gson;
-import com.seebattleclient.message.Message;
+import com.seebattleclient.sendingdatamode.SendingDataHandler;
+import com.seebattleclient.sendingdatamode.SendingMessageHandler;
 import com.seebattleclient.websocket.DefaultMessageHandler;
 import com.seebattleclient.websocket.WebSocketConnector;
 
@@ -10,13 +10,12 @@ import java.util.Scanner;
 
 public class Client {
 
-    private String name;
+    private SendingDataHandler dataHandler;
     private WebSocketConnector webSocketConnector;
-    private Gson gson;
 
     public Client(URI uri) {
-        webSocketConnector = new WebSocketConnector(uri, new DefaultMessageHandler());
-        gson = new Gson();
+        dataHandler = new SendingMessageHandler();
+        webSocketConnector = new WebSocketConnector(uri, new DefaultMessageHandler(this));
     }
 
     public void run() {
@@ -24,11 +23,20 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String line = scanner.nextLine();
-            Message messageRequest = new Message(line);
-            String message = gson.toJson(messageRequest);
+            String message = dataHandler.handle(line);
+            sendMessageIfNotNull(message);
+        }
+    }
+
+    private void sendMessageIfNotNull(String message) {
+        if (message == null) {
+            System.out.println("Данные введены неверно, попробуйте еще раз");
+        } else {
             webSocketConnector.sendMessage(message);
         }
     }
 
-
+    public void setDataHandler(SendingDataHandler dataHandler) {
+        this.dataHandler = dataHandler;
+    }
 }

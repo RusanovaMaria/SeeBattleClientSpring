@@ -1,6 +1,5 @@
 package com.seebattleclient.websocket;
 
-import org.springframework.web.socket.TextMessage;
 
 import javax.websocket.*;
 import java.net.URI;
